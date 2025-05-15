@@ -79,6 +79,14 @@ final class HomeViewController: UIViewController {
         return tableView
     }()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if tableView.dataSource != nil {
+            getData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -158,7 +166,14 @@ final class HomeViewController: UIViewController {
     }
     
     @objc private func didTapRightBarButton() {
+        let viewController = SettingsViewController(
+            viewModel: SettingsViewModel()
+        )
+        let navigationController = UINavigationController(rootViewController: viewController)
+        navigationController.navigationBar.tintColor = .black
+        navigationController.modalPresentationStyle = .fullScreen
         
+        present(navigationController, animated: true)
     }
     
     private func configureTopView(data: List) {
