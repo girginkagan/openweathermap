@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "freshair.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
