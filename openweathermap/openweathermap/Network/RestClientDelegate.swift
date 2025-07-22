@@ -6,6 +6,13 @@
 //
 
 protocol RestClientDelegate {
-    func getCities()
-    func getForecast()
+    func getCities(
+        name: String,
+        completion: @escaping (Result<CitiesResponseModel, BaseErrorModel>) -> Void
+    )
+    func getForecast(
+        city: String,
+        unit: String,
+        completion: @escaping (Result<WeatherResponseModel, BaseErrorModel>) -> Void
+    )
 }

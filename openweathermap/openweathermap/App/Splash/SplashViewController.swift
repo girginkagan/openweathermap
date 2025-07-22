@@ -32,6 +32,16 @@ final class SplashViewController: UIViewController {
         super.viewDidLoad()
         
         setUI()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { [weak self] in
+            guard let self else { return }
+            let viewController = SelectCityViewController(
+                viewModel: SelectCityViewModel()
+            )
+            let navigationController = UINavigationController(rootViewController: viewController)
+            navigationController.modalPresentationStyle = .fullScreen
+            
+            present(navigationController, animated: true)
+        }
     }
     
     init(viewModel: SplashViewModel) {
