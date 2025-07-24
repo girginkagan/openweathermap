@@ -9,6 +9,7 @@ import UIKit
 
 enum Images: String {
     case icLogo
+    case icSettings
     
     var image: UIImage? {
         UIImage(named: rawValue)

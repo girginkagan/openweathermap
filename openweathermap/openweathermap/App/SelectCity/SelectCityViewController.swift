@@ -96,6 +96,18 @@ extension SelectCityViewController: UISearchBarDelegate {
 
 extension SelectCityViewController: SelectCityTableViewSourceDelegate {
     func didTapCity(data: CitiesResponseModelElement) {
+        DataProvider.sharedInstance.selectedCity = data.name ?? ""
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = Colors.blue.color
         
+        let viewController = HomeViewController(viewModel: HomeViewModel())
+        let navigationContoller = UINavigationController(rootViewController: viewController)
+        navigationContoller.modalPresentationStyle = .fullScreen
+        navigationContoller.navigationBar.standardAppearance = appearance
+        navigationContoller.navigationBar.scrollEdgeAppearance = navigationContoller.navigationBar.standardAppearance
+        navigationContoller.navigationBar.tintColor = Colors.white.color
+        
+        present(navigationContoller, animated: true)
     }
 }
