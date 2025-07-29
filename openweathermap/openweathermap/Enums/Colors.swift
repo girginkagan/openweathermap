@@ -12,6 +12,7 @@ enum Colors: String {
     case white
     case blue
     case colorDivider
+    case colorSelected
     
     var color: UIColor? {
         UIColor(named: rawValue)
